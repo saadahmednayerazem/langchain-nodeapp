@@ -14,7 +14,7 @@ function FileDelete({ name }: { name: string }) {
         onClick={handleClick}
         style={{ display: isHidden ? "none" : "block" }}
       >
-        <IconX size={18} />
+        <IconX size={30} />
       </ActionIcon>
       <ActionIcon
         variant="transparent"
@@ -23,7 +23,7 @@ function FileDelete({ name }: { name: string }) {
         style={{ display: isHidden ? "none" : "block" }}
         loading={isLoading}
       >
-        <IconCheck size={18} />
+        <IconCheck size={30} />
       </ActionIcon>
       <ActionIcon
         variant="transparent"
@@ -31,7 +31,7 @@ function FileDelete({ name }: { name: string }) {
         onClick={handleClick}
         style={{ display: action === "confirm" ? "none" : "block" }}
       >
-        <IconTrash size={18} />
+        <IconTrash size={30} />
       </ActionIcon>
     </Group>
   );

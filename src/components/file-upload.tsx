@@ -23,19 +23,10 @@ function FileUpload(props: Partial<DropzoneProps>) {
       loading={isLoading}
       {...props}
     >
-      <Stack align="center" spacing="xs" style={{ minHeight: rem(42), pointerEvents: "none" }}>
-        <Dropzone.Accept>
-          <IconUpload size="2.5rem" stroke={1} />
-        </Dropzone.Accept>
-        <Dropzone.Reject>
-          <IconX size="2.5rem" stroke={1} />
-        </Dropzone.Reject>
-        <Dropzone.Idle>
-          <IconFile size="2.5rem" stroke={1} />
-        </Dropzone.Idle>
-        <Text size="sm">Drag document here or click to select file</Text>
-        <Text size="xs" color="dimmed">
-          Only pdf, doc, docx, txt files are allowed
+      <Stack align="left" spacing="xs" style={{ minHeight: rem(42), pointerEvents: "none" }}>
+        <Text size="sm">Click To Upload</Text>
+        <Text size="sm">
+          Only pdf, doc, docx, txt files formats are allowed here
         </Text>
       </Stack>
     </Dropzone>

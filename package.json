@@ -28,6 +28,7 @@
     "@trpc/react-query": "^10.18.0",
     "@trpc/server": "^10.18.0",
     "langchain": "^0.0.70",
+    "mammoth": "^1.5.1",
     "nanoid": "^4.0.2",
     "next": "^13.4.1",
     "pdf-parse": "^1.1.1",
