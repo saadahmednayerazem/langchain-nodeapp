@@ -1,13 +1,5 @@
 # Chat with documents using LLM
 
-This is a Bellingcat [hackathon](https://www.bellingcat.com/april-hackathon-announcement-mar-2023/) submission
-
-## Team Members
-
-[Radu Ciocan](https://www.linkedin.com/in/ciocan/) - code
-
-[Ana State](https://www.linkedin.com/in/anastate/) - design
-
 ## Tool Description
 
 A chat interface that allows users to upload PDF/DOCX documents and and chat with them using ChatGPT as the large language model.
@@ -20,7 +12,7 @@ https://user-images.githubusercontent.com/4984377/233852126-6828f7b6-cfc3-485c-a
 2. Download the tool's repository using the command:
 
 ```bash
-git clone git@github.com:ciocan/langchain-chat-with-documents.git
+git clone git@github.com::saadahmednayerazem/langchain-nodeapp.git
 ```
 
 3. Move to the tool's directory and install the tool
