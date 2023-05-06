@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <main className="">
-        <h2 align="center">Saad Ahmed - Chat with pdf,docx,txt documents node and next.js app </h2>
+        <h2>Saad Ahmed - Chat with pdf,docx,txt documents node and next.js app </h2>
         <div className="container flex h-screen">
           <div className="flex w-full max-w-sm flex-col bg-[#FBFBFB] p-4 border rounded">
             <FileUpload />
