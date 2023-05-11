@@ -30,7 +30,7 @@ export const weaviateRouter = createTRPCRouter({
     )
     .mutation(async ({ input }) => {
       const { name, userId } = input;
-      const Bucket = `bellingcat-${userId}`;
+      const Bucket = `saad-${userId}`;
       const Key = name;
 
       const { blob, contentType } = await getObjectAsBlob(Bucket, Key);
