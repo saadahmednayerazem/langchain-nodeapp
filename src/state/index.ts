@@ -15,12 +15,16 @@ export interface Message {
 interface AppState {
   userId: string;
   question: string;
+  qaPromptTemplate: string;
+  questionGeneratorTemplate: string;
   history: Message[];
   files: FileType[];
   setUserId: (userId: string) => void;
   addFile: (file: FileType) => void;
   deleteFile: (id: string) => void;
   setQuestion: (question: string) => void;
+  setQAPromptTemplate: (qaPromptTemplate: string) => void;
+  setQuestionGeneratorTemplate: (questionGeneratorTemplate: string) => void;
   setHistory: (history: Message[]) => void;
   addToHistory: (message: Message) => void;
 }
@@ -31,6 +35,8 @@ const useAppState = create<AppState>()(
       (set) => ({
         userId: "anonymous",
         question: "",
+        qaPromptTemplate: "",
+        questionGeneratorTemplate: "",
         files: [],
         history: [],
         setUserId: (userId: string) => set({ userId }),
@@ -38,6 +44,8 @@ const useAppState = create<AppState>()(
         deleteFile: (name: string) =>
           set((state) => ({ files: state.files.filter((file) => file.name !== name) })),
         setQuestion: (question: string) => set({ question }),
+        setQAPromptTemplate: (qaPromptTemplate: string) => set({ qaPromptTemplate }),
+        setQuestionGeneratorTemplate: (questionGeneratorTemplate: string) => set({ questionGeneratorTemplate }),
         setHistory: (history: Message[]) => set({ history }),
         addToHistory: (message: Message) =>
           set((state) => ({ history: [...state.history, message] })),

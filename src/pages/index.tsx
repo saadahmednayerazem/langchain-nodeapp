@@ -4,6 +4,7 @@ import Head from "next/head";
 
 import FileUpload from "~/components/file-upload";
 import FileList from "~/components/file-list";
+import EditPrompts from "~/components/edit-prompts";
 import Chat from "~/components/chat";
 import { useUserId } from "~/hooks";
 
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
           <div className="flex w-full max-w-sm flex-col bg-[#FBFBFB] p-4 border rounded">
             <FileUpload />
             <FileList />
+            <EditPrompts />
             <Text color="red" size="lg" className="sticky bottom-0 mt-auto">
               <strong>{userId}</strong>
             </Text>

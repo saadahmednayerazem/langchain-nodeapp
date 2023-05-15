@@ -35,7 +35,7 @@ function Chat() {
             className="flex-1"
             placeholder="Type your message..."
             onChange={(e) => setQuestion(e.target.value)}
-            value={question}
+            defaultValue={question}
             disabled={chatApi.isLoading}
             onKeyDown={getHotkeyHandler([["Enter", handleSend]])}
           />

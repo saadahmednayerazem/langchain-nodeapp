@@ -1,3 +1,5 @@
 /* @tailwind base; comment this to make mantine work */
 @tailwind components;
 @tailwind utilities;
+
+.mantine-Text-root.mantine-1k0grif{white-space:pre-wrap !important;}

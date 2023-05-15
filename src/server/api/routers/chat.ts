@@ -15,6 +15,13 @@ export const wvClient = weaviate.client({
   apiKey: new weaviate.ApiKey(env.WEAVIATE_API_KEY),
 });
 
+const Question_Generator_Template = `Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.
+
+Chat History:
+{chat_history}
+Follow Up Input: {question}
+Standalone question:`;
+
 const model = new ChatOpenAI({ openAIApiKey: env.OPENAI_API_KEY, temperature: 0, modelName: "gpt-3.5-turbo" });
 const embeddings = new OpenAIEmbeddings({ openAIApiKey: env.OPENAI_API_KEY });
 
@@ -24,11 +31,13 @@ export const chatRouter = createTRPCRouter({
       z.object({
         userId: z.string(),
         question: z.string(),
+        qaPromptTemplate: z.string(),
+        questionGeneratorTemplate: z.string(),
         history: z.array(z.object({ agent: z.string(), text: z.string() })),
       }),
     )
     .mutation(async ({ input }) => {
-      const { question, userId, history } = input;
+      const { userId, question, qaPromptTemplate, questionGeneratorTemplate, history } = input;
 
       try {
         const vectorStore = await WeaviateStore.fromExistingIndex(embeddings, {
@@ -47,7 +56,15 @@ export const chatRouter = createTRPCRouter({
               valueText: userId,
             },
           }),
+          {
+            qaTemplate: qaPromptTemplate,
+            questionGeneratorTemplate: questionGeneratorTemplate,
+            returnSourceDocuments: true, //The number of source documents returned is 4 by default
+          },
         );
+        
+        console.log("qaPromptTemplate:"+qaPromptTemplate);
+        console.log("question:"+question);
 
         const chatHistory = history.map((message) => message.text);
         const res = await chain.call({ question, chat_history: chatHistory });
