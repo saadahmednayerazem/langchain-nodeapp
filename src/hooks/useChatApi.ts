@@ -24,6 +24,8 @@ export const useChatApi = ({ scrollToBottom }: { scrollToBottom: () => void }) =
 
   const handleSend = () => {
     if (!question) return;
+    if (!qaPromptTemplate) return;
+    if (!questionGeneratorTemplate) return;
     addToHistory({ agent: "human", text: question });
     chatApi.mutate({ userId, question, qaPromptTemplate, questionGeneratorTemplate, history });
   };
