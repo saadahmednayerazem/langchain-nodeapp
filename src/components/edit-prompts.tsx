@@ -17,9 +17,9 @@ Standalone question:`;
 
 function EditPrompts() {
 
-  const {qaPromptTemplate, setQAPromptTemplate} = useQAPromptTemplate(QA_Prompt_Template);
+  const {qaPromptTemplate, setQAPromptTemplate} = useQAPromptTemplate();
 
-  const {questionGeneratorTemplate, setQuestionGeneratorTemplate} = useQuestionGeneratorTemplate(Question_Generator_Template);
+  const {questionGeneratorTemplate, setQuestionGeneratorTemplate} = useQuestionGeneratorTemplate();
 
   if(qaPromptTemplate == '' || qaPromptTemplate === undefined){
     setQAPromptTemplate(QA_Prompt_Template);
