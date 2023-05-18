@@ -3,18 +3,35 @@ body{
 	background: rgb(0, 162, 255) !important;
 	margin: 0px !important;
 	padding: 0px !important;
-	letter-spacing: .018em !important;
-	font-size: 100% !important;
 	font-family: Roboto,Helvetica,sans-serif;
 }
-#__next{
+.bg-image{
 	background: url("https://us-as.gr-cdn.com/javascripts/app-frontend-login-pages/dist/62fe9bad58926f3fedd2a6816740d961-3256.png") center center / cover no-repeat;
 	margin: 0px !important;
 	padding: 0px !important;
 }
+.logo-img{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.logo-img svg{
+	width: 180px !important;
+	height: 26px !important;
+}
 
-.mantine-Text-root.mantine-1k0grif{white-space:pre-wrap !important;}
+.mantine-Text-root.mantine-1k0grif{
+	white-space:pre-wrap !important;
+}
+.mantine-Dropzone-root{
+	background: rgb(0, 162, 255) !important;
+}
 
+.sidebar{
+		color:white !important;
+
+}
 
 /* @tailwind base; comment this to make mantine work */
 /*@tailwind components;*/

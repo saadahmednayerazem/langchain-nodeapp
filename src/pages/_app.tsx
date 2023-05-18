@@ -2,10 +2,10 @@ import { type AppType } from "next/app";
 import { MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 
-// add bootstrap css 
+// added bootstrap css 
 import 'bootstrap/dist/css/bootstrap.css'
 
-// own css files here
+// added own css files here
 import "~/styles/globals.css";
 
 import { api } from "~/utils/api";
@@ -15,9 +15,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   useSetUserId();
 
   return (
-    <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
+    <MantineProvider withGlobalStyles withNormalizeCSS
       theme={{
         /** Put your mantine theme override here */
         colorScheme: "light",

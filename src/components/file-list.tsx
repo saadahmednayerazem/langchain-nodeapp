@@ -15,7 +15,7 @@ function FileList() {
           <Flex key={name}>
             <Stack spacing={0}>
               <Text size="lg">{name}</Text>
-              <Text size="sm" color="dimmed">
+              <Text size="sm">
                 {prettyBytes(size)}
               </Text>
             </Stack>
