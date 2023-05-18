@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Chat with pdf,docx,txt documents</title>
         <meta name="description" content="Saad Ahmed " />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className="">
         <h2>Saad Ahmed - Chat with pdf,docx,txt documents node and next.js app </h2>

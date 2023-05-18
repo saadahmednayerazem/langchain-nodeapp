@@ -1,5 +1,21 @@
-/* @tailwind base; comment this to make mantine work */
-@tailwind components;
-@tailwind utilities;
+body{
+	overflow-x: hidden;
+	background: rgb(0, 162, 255) !important;
+	margin: 0px !important;
+	padding: 0px !important;
+	letter-spacing: .018em !important;
+	font-size: 100% !important;
+	font-family: Roboto,Helvetica,sans-serif;
+}
+#__next{
+	background: url("https://us-as.gr-cdn.com/javascripts/app-frontend-login-pages/dist/62fe9bad58926f3fedd2a6816740d961-3256.png") center center / cover no-repeat;
+	margin: 0px !important;
+	padding: 0px !important;
+}
 
 .mantine-Text-root.mantine-1k0grif{white-space:pre-wrap !important;}
+
+
+/* @tailwind base; comment this to make mantine work */
+/*@tailwind components;*/
+/*@tailwind utilities;*/

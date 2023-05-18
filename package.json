@@ -27,6 +27,7 @@
     "@trpc/next": "^10.18.0",
     "@trpc/react-query": "^10.18.0",
     "@trpc/server": "^10.18.0",
+    "bootstrap": "^5.2.3",
     "langchain": "^0.0.70",
     "mammoth": "^1.5.1",
     "nanoid": "^4.0.2",

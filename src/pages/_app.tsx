@@ -2,7 +2,12 @@ import { type AppType } from "next/app";
 import { MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 
+// add bootstrap css 
+import 'bootstrap/dist/css/bootstrap.css'
+
+// own css files here
 import "~/styles/globals.css";
+
 import { api } from "~/utils/api";
 import { useSetUserId } from "~/hooks";
 
