@@ -1,6 +1,5 @@
 import type { DropzoneProps } from "@mantine/dropzone";
 import { Stack, Text, rem } from "@mantine/core";
-import { IconUpload, IconFile, IconX } from "@tabler/icons-react";
 import { Dropzone, MIME_TYPES } from "@mantine/dropzone";
 
 import { useFileUpload } from "~/hooks/useFileUpload";
@@ -26,7 +25,7 @@ function FileUpload(props: Partial<DropzoneProps>) {
       <Stack align="left" spacing="xs" style={{ minHeight: rem(42), pointerEvents: "none" }}>
         <Text size="sm">Click To Upload</Text>
         <Text size="sm">
-          Only pdf, doc, docx, txt files formats are allowed here
+          Only (pdf, doc, docx, txt) files formats are currently allow here
         </Text>
       </Stack>
     </Dropzone>

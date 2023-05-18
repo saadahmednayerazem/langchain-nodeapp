@@ -21,7 +21,7 @@ export function useSetUserId() {
 
   useEffect(() => {
     if (userId === "anonymous") {
-      setUserId("user-" + getId());
+      setUserId("" + getId());
     }
   }, [userId, setUserId]);
 }

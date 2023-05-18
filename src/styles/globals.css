@@ -25,7 +25,7 @@ body{
 	white-space:pre-wrap !important;
 }
 .mantine-Dropzone-root{
-	background: rgb(0, 162, 255) !important;
+	background: linear-gradient(rgb(0, 186, 255) 0%, rgb(51, 204, 253) 83.85%) 0% 0% / 100% 100%, 0% 0% / cover;
 }
 
 .sidebar, .tabler-icon-trash{
