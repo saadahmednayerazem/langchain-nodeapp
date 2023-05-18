@@ -1,7 +1,11 @@
 import { z } from "zod";
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
 import { DocxLoader } from "langchain/document_loaders/fs/docx";
+
+import { CSVLoader } from "langchain/document_loaders/fs/csv";
+
 import { TextLoader } from "langchain/document_loaders/fs/text";
+
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { WeaviateStore } from "langchain/vectorstores/weaviate";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
@@ -46,6 +50,9 @@ export const weaviateRouter = createTRPCRouter({
           break;
         case "application/msword":
           Loader = DocxLoader;
+          break;
+        case "text/csv":
+          Loader = CSVLoader;
           break;
         case "text/plain":
           Loader = TextLoader;
