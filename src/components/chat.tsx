@@ -19,13 +19,13 @@ function Chat() {
 
   return (
     <>
-      <div className="flex-1 overflow-y-auto p-8">
+      <div className="flex-1 overflow-y-auto mb-4">
         <ChatHistory />
         <div ref={messagesEndRef} />
       </div>
       <div className="sticky bottom-0 p-8">
-        <div className="flex justify-center">
-          <Button variant="filled" color="gray" onClick={() => setHistory([])}>
+        <div className="flex justify-center mb-2">
+          <Button className="btn btn-danger" onClick={() => setHistory([])}>
             Clear chat messages
           </Button>
         </div>
@@ -39,7 +39,7 @@ function Chat() {
             disabled={chatApi.isLoading}
             onKeyDown={getHotkeyHandler([["Enter", handleSend]])}
           />
-          <Button variant="filled" color="green" onClick={handleSend} loading={chatApi.isLoading}>
+          <Button className="btn btn-primary" onClick={handleSend} loading={chatApi.isLoading}>
             Submit
           </Button>
         </div>

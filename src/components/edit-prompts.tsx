@@ -30,23 +30,21 @@ function EditPrompts() {
 
   return (
    <>
-      <div className="mt-4">
-        <h4 className="mb-0">Edit Prompt - QA_Prompt_Template</h4>
+        <h6 className="mt-4">Edit Prompt - QA_Prompt_Template</h6>
         <textarea
           rows={13}
-          className="container"
+          className="form-control mb-3"
           defaultValue={QA_Prompt_Template}
           onChange={(e) => setQAPromptTemplate(e.target.value)}
         ></textarea>
 
-        <h4 className="mb-0">Edit Prompt - Question_Generator_Template</h4>
+        <h6>Edit Prompt - Question_Generator_Template</h6>
         <textarea 
           rows={10} 
-          className="container"
+          className="form-control mb-3"
           defaultValue={Question_Generator_Template}
           onChange={(e) => setQuestionGeneratorTemplate(e.target.value) }
         ></textarea>
-      </div>
     </>
   );
 }

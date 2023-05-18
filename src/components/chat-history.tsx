@@ -11,9 +11,9 @@ function ChatHistory() {
       {history.map((item, index) => {
         const isAi = item.agent === "ai";
         return (
-          <Flex key={index} className="bg-slate-50 p-4 rounded">
-            <ThemeIcon color="gray" size={24} radius="xl" mr="sm">
-              {isAi ? <IconRobot size={18} /> : <IconUser size={18} />}
+          <Flex key={index} className="rounded border p-2 bg-primary">
+            <ThemeIcon color="white" size={24} radius="xl" mr="sm">
+              {isAi ? <IconRobot color="#00a2ff" size={18} /> : <IconUser color="#00a2ff" size={18} />}
             </ThemeIcon>
             <Text size="md" className="">
               {item.text}
