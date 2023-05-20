@@ -80,11 +80,11 @@ export const chatRouter = createTRPCRouter({
         const questionGeneratorChain = new LLMChain({
           llm: model,
           prompt: question_generator_prompt,
-          verbose: true,
+          // verbose: true,
         });
 
-        // const chain = new ConversationalRetrievalQAChain({
-        const chain = new RetrievalQAChain({
+        const chain = new ConversationalRetrievalQAChain({
+        // const chain = new RetrievalQAChain({
           combineDocumentsChain: loadQARefineChain(model),
           retriever: vectorStore.asRetriever(undefined, {
             distance: 0,
@@ -93,9 +93,9 @@ export const chatRouter = createTRPCRouter({
               operator: "Equal",
               valueText: userId,
             },
-            verbose: true,
-            questionGeneratorChain: questionGeneratorChain,
-          })
+          }),
+          // verbose: true,
+          questionGeneratorChain: questionGeneratorChain,
         });
         const res = await chain.call({ 
           question: question,
