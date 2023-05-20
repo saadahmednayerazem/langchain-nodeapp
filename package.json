@@ -1,5 +1,5 @@
 {
-  "name": "langchain-chat-with-documents",
+  "name": "langchain-nodeapp",
   "version": "0.1.0",
   "private": false,
   "scripts": {
@@ -32,7 +32,7 @@
     "langchain": "^0.0.70",
     "mammoth": "^1.5.1",
     "nanoid": "^4.0.2",
-    "next": "^13.4.1",
+    "next": "^13.4.4-canary.0",
     "pdf-parse": "^1.1.1",
     "pretty-bytes": "^6.1.0",
     "react": "18.2.0",

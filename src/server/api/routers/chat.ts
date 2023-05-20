@@ -2,7 +2,9 @@ import { z } from "zod";
 import { WeaviateStore } from "langchain/vectorstores/weaviate";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { ChatOpenAI } from "langchain/chat_models/openai";
-import { ConversationalRetrievalQAChain } from "langchain/chains";
+import { ConversationalRetrievalQAChain, RetrievalQAChain, loadQARefineChain, LLMChain } from "langchain/chains";
+import { PromptTemplate } from "langchain/prompts";
+
 import weaviate from "weaviate-ts-client";
 
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
@@ -15,7 +17,14 @@ export const wvClient = weaviate.client({
   apiKey: new weaviate.ApiKey(env.WEAVIATE_API_KEY),
 });
 
-const Question_Generator_Template = `Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.
+const QAPromptTemplate = `Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+{context}
+
+Question: {question}
+Helpful Answer:`;
+
+const QuestionGeneratorTemplate = `Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.
 
 Chat History:
 {chat_history}
@@ -46,30 +55,56 @@ export const chatRouter = createTRPCRouter({
           metadataKeys: ["userId"],
         });
 
-        const chain = ConversationalRetrievalQAChain.fromLLM(
-          model,
-          vectorStore.asRetriever(undefined, {
+        console.log("question:"+question);
+        const chatHistory = history.map((message) => message.text);
+        console.log(chatHistory);
+
+        // const chain = ConversationalRetrievalQAChain.fromLLM(
+        //   model,
+        //   vectorStore.asRetriever(undefined, {
+        //     distance: 0,
+        //     where: {
+        //       path: ["userId"],
+        //       operator: "Equal",
+        //       valueText: userId,
+        //     },
+        //   }),
+        //   {
+        //     qaTemplate: QAPromptTemplate,
+        //     questionGeneratorTemplate: QuestionGeneratorTemplate,
+        //     returnSourceDocuments: true, //The number of source documents returned is 4 by default
+        //   },
+        // );
+
+        const question_generator_prompt = PromptTemplate.fromTemplate(QuestionGeneratorTemplate);
+        const questionGeneratorChain = new LLMChain({
+          llm: model,
+          prompt: question_generator_prompt,
+          verbose: true,
+        });
+
+        const chain = new ConversationalRetrievalQAChain({
+        // const chain = new RetrievalQAChain({
+          combineDocumentsChain: loadQARefineChain(model),
+          retriever: vectorStore.asRetriever(undefined, {
             distance: 0,
             where: {
               path: ["userId"],
               operator: "Equal",
               valueText: userId,
             },
-          }),
-          {
-            qaTemplate: qaPromptTemplate,
-            questionGeneratorTemplate: questionGeneratorTemplate,
-            returnSourceDocuments: true, //The number of source documents returned is 4 by default
-          },
-        );
-        
-        console.log("qaPromptTemplate:"+qaPromptTemplate);
-        console.log("question:"+question);
+            verbose: true,
+            questionGeneratorChain: questionGeneratorChain,
+          })
+        });
+        const res = await chain.call({ 
+          question: question,
+          chat_history: chatHistory,
+          // query: question,
+        });
+        console.log({ res });
 
-        const chatHistory = history.map((message) => message.text);
-        const res = await chain.call({ question, chat_history: chatHistory });
-
-        const response = res.text as string;
+        const response = res.output_text as string;
         return response;
       } catch (e) {
         console.error(e);
