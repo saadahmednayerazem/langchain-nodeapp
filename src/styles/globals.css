@@ -1,12 +1,12 @@
 body{
 	overflow-x: hidden;
-	background: rgb(0, 162, 255) !important;
+/*	background: rgb(0, 162, 255) !important;*/
 	margin: 0px !important;
 	padding: 0px !important;
 	font-family: Roboto,Helvetica,sans-serif;
 }
 .bg-image{
-	background: url("https://us-as.gr-cdn.com/javascripts/app-frontend-login-pages/dist/62fe9bad58926f3fedd2a6816740d961-3256.png") center center / cover no-repeat;
+/*	background: url("https://us-as.gr-cdn.com/javascripts/app-frontend-login-pages/dist/62fe9bad58926f3fedd2a6816740d961-3256.png") center center / cover no-repeat;*/
 	margin: 0px !important;
 	padding: 0px !important;
 }
@@ -25,11 +25,11 @@ body{
 	white-space:pre-wrap !important;
 }
 .mantine-Dropzone-root{
-	background: linear-gradient(rgb(0, 186, 255) 0%, rgb(51, 204, 253) 83.85%) 0% 0% / 100% 100%, 0% 0% / cover;
+/*	background: linear-gradient(rgb(0, 186, 255) 0%, rgb(51, 204, 253) 83.85%) 0% 0% / 100% 100%, 0% 0% / cover;*/
 }
 
 .sidebar, .tabler-icon-trash{
-	color:white !important;
+/*	color:white !important;*/
 }
 
 .box-d8-0-2-20 {
@@ -63,7 +63,7 @@ body{
 	display: flex;
 	z-index: 2;
 	position: relative;
-	background: linear-gradient(rgb(0, 162, 255) 0%, rgb(64, 203, 255) 100%);
+	background: white;
 	box-shadow: rgba(255, 255, 255, 0.36) -3px -3px 4px, rgba(32, 39, 48, 0.24) 3px 3px 4px;
 	box-sizing: border-box;
 	border-radius: 100%;
@@ -83,15 +83,6 @@ svg:not(:root) {
   border-radius: 12px !important;
 }
 
-.bg-primary{
-	background: linear-gradient(rgb(0, 186, 255) 0%, rgb(51, 204, 253) 83.85%) 0% 0% / 100% 100%, 0% 0% / cover;
-	color:white !important;
-}
-
-.btn.btn-primary{
-	background: linear-gradient(rgb(0, 186, 255) 0%, rgb(51, 204, 253) 83.85%) 0% 0% / 100% 100%, 0% 0% / cover;
-	border: 0px;
-}
 
 /* @tailwind base; comment this to make mantine work */
 /*@tailwind components;*/

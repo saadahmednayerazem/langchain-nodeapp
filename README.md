@@ -1,8 +1,4 @@
-# Chat with documents using LLM
-
-## Tool Description
-
-A chat interface that allows users to upload PDF/DOCX documents and and chat with them using ChatGPT as the large language model.
+# Chat with pdfs,docs,txt,csv,json,mp4,mp3,aws ocr
 
 ## Installation
 
@@ -16,7 +12,7 @@ git clone git@github.com::saadahmednayerazem/langchain-nodeapp.git
 3. Move to the tool's directory and install the tool
 
 ```bash
-cd langchain-chat-with-documents
+cd langchain-nodeapp
 npm install
 ```
 

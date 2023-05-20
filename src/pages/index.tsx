@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Chat with pdf,docx,csv,txt documents</title>
+        <title>Chat with pdf,docx,csv,txt,json documents</title>
         <meta name="description" content="Saad Ahmed " />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
@@ -32,10 +32,8 @@ const Home: NextPage = () => {
 
               <FileList />
 
+              <Text size="lg" className="mt-5"><strong>Db-Id={userId}</strong></Text>
               <EditPrompts />
-              <Text size="lg" className="sticky bottom-0 mt-auto">
-                <strong>Db-Id={userId}</strong>
-              </Text>
             </div>
             <div className="col-md-8">
 
@@ -45,11 +43,11 @@ const Home: NextPage = () => {
                     <div className="flex-0-2-1 flex-d4-0-2-22 box-0-2-3 box-d10-0-2-23" data-ats-login-icon="logo_gr_small">
                       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="18" fill="none" viewBox="0 0 30 18">
                         <g clipPath="url(#clip0_11012_450125)">
-                          <path fill="#fff" d="M14.766 14.118a12.571 12.571 0 01-7.253-2.358c-2.438-1.746-4.087-4.315-4.612-7.184 0-.191-.06-.382-.087-.54a1.233 1.233 0 01.042-.547c.054-.177.148-.341.275-.48.127-.14.284-.252.46-.328.176-.076.368-.115.561-.115h.625c.474 2.184 1.727 4.142 3.544 5.54a10.67 10.67 0 006.385 2.167c5.585.116 11.022-4.626 14.497-9.808a1.213 1.213 0 00-.426-.34A1.27 1.27 0 0028.238 0H1.26a1.29 1.29 0 00-.89.353A1.178 1.178 0 000 1.204v15.538c0 .32.133.626.369.852.236.226.556.353.89.353h26.98c.168.004.335-.024.492-.082.157-.059.3-.147.42-.26a1.157 1.157 0 00.381-.863V3.455c-4.612 7.665-9.875 10.663-14.766 10.663z"></path>
+                          <path fill="#0d6efd" d="M14.766 14.118a12.571 12.571 0 01-7.253-2.358c-2.438-1.746-4.087-4.315-4.612-7.184 0-.191-.06-.382-.087-.54a1.233 1.233 0 01.042-.547c.054-.177.148-.341.275-.48.127-.14.284-.252.46-.328.176-.076.368-.115.561-.115h.625c.474 2.184 1.727 4.142 3.544 5.54a10.67 10.67 0 006.385 2.167c5.585.116 11.022-4.626 14.497-9.808a1.213 1.213 0 00-.426-.34A1.27 1.27 0 0028.238 0H1.26a1.29 1.29 0 00-.89.353A1.178 1.178 0 000 1.204v15.538c0 .32.133.626.369.852.236.226.556.353.89.353h26.98c.168.004.335-.024.492-.082.157-.059.3-.147.42-.26a1.157 1.157 0 00.381-.863V3.455c-4.612 7.665-9.875 10.663-14.766 10.663z"></path>
                         </g>
                         <defs>
                           <clipPath id="clip0_11012_450125">
-                            <path fill="#fff" d="M0 0H29.533V18H0z"></path>
+                            <path fill="#0d6efd" d="M0 0H29.533V18H0z"></path>
                           </clipPath>
                         </defs>
                       </svg>
