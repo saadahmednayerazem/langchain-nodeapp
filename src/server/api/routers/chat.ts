@@ -83,8 +83,8 @@ export const chatRouter = createTRPCRouter({
           verbose: true,
         });
 
-        const chain = new ConversationalRetrievalQAChain({
-        // const chain = new RetrievalQAChain({
+        // const chain = new ConversationalRetrievalQAChain({
+        const chain = new RetrievalQAChain({
           combineDocumentsChain: loadQARefineChain(model),
           retriever: vectorStore.asRetriever(undefined, {
             distance: 0,
