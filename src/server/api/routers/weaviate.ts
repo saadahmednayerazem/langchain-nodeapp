@@ -3,6 +3,7 @@ import { PDFLoader } from "langchain/document_loaders/fs/pdf";
 import { DocxLoader } from "langchain/document_loaders/fs/docx";
 
 import { CSVLoader } from "langchain/document_loaders/fs/csv";
+import { JSONLoader } from "langchain/document_loaders/fs/json";
 
 import { TextLoader } from "langchain/document_loaders/fs/text";
 
@@ -53,6 +54,9 @@ export const weaviateRouter = createTRPCRouter({
           break;
         case "text/csv":
           Loader = CSVLoader;
+          break;
+        case "application/json":
+          Loader = JSONLoader;
           break;
         case "text/plain":
           Loader = TextLoader;

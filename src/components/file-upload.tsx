@@ -10,6 +10,7 @@ const acceptedFiles = {
   [MIME_TYPES.docx]: [".docx"],
   "text/csv": [".csv"],
   "text/plain": [".txt"],
+  "application/json": [".json"],
 };
 
 function FileUpload(props: Partial<DropzoneProps>) {
@@ -26,7 +27,7 @@ function FileUpload(props: Partial<DropzoneProps>) {
       <Stack align="left" spacing="xs" style={{ minHeight: rem(42), pointerEvents: "none" }}>
         <Text size="sm" className="fw-bold">Click To Upload</Text>
         <Text size="sm">
-          Only (pdf, doc, docx, csv, txt,) files formats are currently allow here
+          Only (pdf, doc, docx, csv, txt, json ) files formats are currently allow here
         </Text>
       </Stack>
     </Dropzone>
