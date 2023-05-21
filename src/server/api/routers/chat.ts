@@ -2,7 +2,7 @@ import { z } from "zod";
 import { WeaviateStore } from "langchain/vectorstores/weaviate";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { ChatOpenAI } from "langchain/chat_models/openai";
-import { ConversationalRetrievalQAChain, RetrievalQAChain, loadQARefineChain, LLMChain } from "langchain/chains";
+import { ConversationalRetrievalQAChain, loadQAMapReduceChain, LLMChain } from "langchain/chains";
 import { PromptTemplate } from "langchain/prompts";
 
 import weaviate from "weaviate-ts-client";
@@ -24,7 +24,7 @@ const QAPromptTemplate = `Use the following pieces of context to answer the ques
 Question: {question}
 Helpful Answer:`;
 
-const QuestionGeneratorTemplate = `Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.
+const question_generator_template = `Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.
 
 Chat History:
 {chat_history}
@@ -76,16 +76,14 @@ export const chatRouter = createTRPCRouter({
         //   },
         // );
 
-        const question_generator_prompt = PromptTemplate.fromTemplate(QuestionGeneratorTemplate);
+        const question_generator_prompt = PromptTemplate.fromTemplate(question_generator_template);
         const questionGeneratorChain = new LLMChain({
           llm: model,
           prompt: question_generator_prompt,
-          // verbose: true,
         });
 
         const chain = new ConversationalRetrievalQAChain({
-        // const chain = new RetrievalQAChain({
-          combineDocumentsChain: loadQARefineChain(model),
+          combineDocumentsChain: loadQAMapReduceChain(model),
           retriever: vectorStore.asRetriever(undefined, {
             distance: 0,
             where: {
@@ -94,8 +92,8 @@ export const chatRouter = createTRPCRouter({
               valueText: userId,
             },
           }),
-          // verbose: true,
           questionGeneratorChain: questionGeneratorChain,
+          verbose: true,
         });
         const res = await chain.call({ 
           question: question,
@@ -104,7 +102,7 @@ export const chatRouter = createTRPCRouter({
         });
         console.log({ res });
 
-        const response = res.output_text as string;
+        const response = res.text as string;
         return response;
       } catch (e) {
         console.error(e);
