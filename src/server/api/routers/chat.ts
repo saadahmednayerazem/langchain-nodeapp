@@ -2,7 +2,7 @@ import { z } from "zod";
 import { WeaviateStore } from "langchain/vectorstores/weaviate";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { ChatOpenAI } from "langchain/chat_models/openai";
-import { ConversationalRetrievalQAChain, loadQAMapReduceChain, LLMChain } from "langchain/chains";
+import { ConversationalRetrievalQAChain, loadQAMapReduceChain, loadQARefineChain, LLMChain } from "langchain/chains";
 import { PromptTemplate } from "langchain/prompts";
 
 import weaviate from "weaviate-ts-client";
@@ -59,23 +59,6 @@ export const chatRouter = createTRPCRouter({
         const chatHistory = history.map((message) => message.text);
         console.log(chatHistory);
 
-        // const chain = ConversationalRetrievalQAChain.fromLLM(
-        //   model,
-        //   vectorStore.asRetriever(undefined, {
-        //     distance: 0,
-        //     where: {
-        //       path: ["userId"],
-        //       operator: "Equal",
-        //       valueText: userId,
-        //     },
-        //   }),
-        //   {
-        //     qaTemplate: QAPromptTemplate,
-        //     questionGeneratorTemplate: QuestionGeneratorTemplate,
-        //     returnSourceDocuments: true, //The number of source documents returned is 4 by default
-        //   },
-        // );
-
         const question_generator_prompt = PromptTemplate.fromTemplate(question_generator_template);
         const questionGeneratorChain = new LLMChain({
           llm: model,
@@ -83,7 +66,8 @@ export const chatRouter = createTRPCRouter({
         });
 
         const chain = new ConversationalRetrievalQAChain({
-          combineDocumentsChain: loadQAMapReduceChain(model),
+          // combineDocumentsChain: loadQAMapReduceChain(model),
+          combineDocumentsChain: loadQARefineChain(model),
           retriever: vectorStore.asRetriever(undefined, {
             distance: 0,
             where: {
@@ -102,7 +86,7 @@ export const chatRouter = createTRPCRouter({
         });
         console.log({ res });
 
-        const response = res.text as string;
+        const response = res.output_text as string;
         return response;
       } catch (e) {
         console.error(e);
