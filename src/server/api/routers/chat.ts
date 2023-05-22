@@ -65,9 +65,10 @@ export const chatRouter = createTRPCRouter({
           prompt: question_generator_prompt,
         });
 
+        const chainOptions = {maxIterations: 1, ensureMapStep: false, maxTokens:3500};
         const chain = new ConversationalRetrievalQAChain({
           // combineDocumentsChain: loadQAMapReduceChain(model),
-          combineDocumentsChain: loadQARefineChain(model),
+          combineDocumentsChain: loadQAMapReduceChain(model, chainOptions),
           retriever: vectorStore.asRetriever(undefined, {
             distance: 0,
             where: {
@@ -86,7 +87,7 @@ export const chatRouter = createTRPCRouter({
         });
         console.log({ res });
 
-        const response = res.output_text as string;
+        const response = res.text as string;
         return response;
       } catch (e) {
         console.error(e);
