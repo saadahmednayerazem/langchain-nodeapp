@@ -67,8 +67,8 @@ export const chatRouter = createTRPCRouter({
 
         const chainOptions = {maxIterations: 1, ensureMapStep: false, maxTokens:3500};
         const chain = new ConversationalRetrievalQAChain({
-          // combineDocumentsChain: loadQAMapReduceChain(model),
-          combineDocumentsChain: loadQAMapReduceChain(model, chainOptions),
+          // combineDocumentsChain: loadQARefineChain(model),
+          combineDocumentsChain: loadQAMapReduceChain(model),
           retriever: vectorStore.asRetriever(undefined, {
             distance: 0,
             where: {
