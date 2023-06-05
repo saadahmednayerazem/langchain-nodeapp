@@ -29,10 +29,10 @@ function Chat() {
             Clear chat messages
           </Button>
         </div>
-        <div className="flex gap-2">
-          <TextInput
+        <div className="input-group mb-3">
+          <input
             type="text"
-            className="flex-1"
+            className="form-control"
             placeholder="Type your message..."
             onChange={(e) => setQuestion(e.target.value)}
             defaultValue={question}
