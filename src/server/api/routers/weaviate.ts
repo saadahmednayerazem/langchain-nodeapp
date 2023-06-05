@@ -68,17 +68,17 @@ export const weaviateRouter = createTRPCRouter({
           });
       }
 
-      const loader = new Loader(blob);
-      const rawDocs = await loader.load();
+      const loader         = new Loader(blob);
+      const rawDocs        = await loader.load();
       const needsSplitting = contentType === "text/plain";
-      const textSplitter = new RecursiveCharacterTextSplitter();
-      const docs = needsSplitting ? await textSplitter.splitDocuments(rawDocs) : rawDocs;
-      const formattedDocs = docs.map((doc) => transformDoc(doc, { userId, name }));
+      const textSplitter   = new RecursiveCharacterTextSplitter();
+      const docs           = needsSplitting ? await textSplitter.splitDocuments(rawDocs) : rawDocs;
+      const formattedDocs  = docs.map((doc) => transformDoc(doc, { userId, name }));
 
       try {
         await WeaviateStore.fromDocuments(formattedDocs, embeddings, {
-          client: wvClient,
-          indexName: "Documents",
+          client:       wvClient,
+          indexName:    "Documents",
           metadataKeys: ["userId", "name"],
         });
       } catch (e) {
