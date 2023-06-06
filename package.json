@@ -2,9 +2,6 @@
   "name": "langchain-nodeapp",
   "version": "0.1.0",
   "private": false,
-  "engines": {
-    "node": "18.x"
-  },
   "scripts": {
     "build": "next build",
     "build:digitalocean": "npm install --production=false && npm run build && npm ci",
