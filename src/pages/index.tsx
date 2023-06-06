@@ -19,11 +19,11 @@ const Home: NextPage = () => {
       </Head>
       <main>
         <script src="http://tryauthor.code/public/iframeResizer.contentWindow.min.js" async />
-        <div className="row">
+        <div className="row m-0 p-0">
           <div className="col-md-4 sidebar">
             <div className="card border-0 shadow-sm">
               <div className="card-body card-body-padding">
-                <h6 className="mt-1 ml-3 fs-16 number-font">Critique and Analyze Chat Question Answering With Your Multiple Documents</h6>
+                <h6 className="mt-1 ml-3 fs-16 fw-bolder">Critique and Analyze</h6>
                 <p className="fs-12 text-muted mb-4 small">Critique and Analyze Chat Question Answering With Your Multiple Documents</p>
 
                 <FileUpload />
