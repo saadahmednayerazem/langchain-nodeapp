@@ -4,7 +4,6 @@ import Head from "next/head";
 
 import FileUpload from "~/components/file-upload";
 import FileList from "~/components/file-list";
-import EditPrompts from "~/components/edit-prompts";
 import Chat from "~/components/chat";
 import { useUserId } from "~/hooks";
 

@@ -1,14 +1,12 @@
 import { notifications } from "@mantine/notifications";
 
 import { api } from "~/utils/api";
-import { useHistory, useQuestion, useQAPromptTemplate, useQuestionGeneratorTemplate, useUserId } from "~/hooks";
+import { useHistory, useQuestion, useUserId } from "~/hooks";
 
 export const useChatApi = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
   const { userId } = useUserId();
   const { history, addToHistory } = useHistory();
   const { question, setQuestion } = useQuestion();
-  const {qaPromptTemplate, setQAPromptTemplate} = useQAPromptTemplate();
-  const {questionGeneratorTemplate, setQuestionGeneratorTemplate} = useQuestionGeneratorTemplate();
 
   const chatApi = api.chat.prompt.useMutation({
     onSuccess: (text) => {
@@ -24,10 +22,8 @@ export const useChatApi = ({ scrollToBottom }: { scrollToBottom: () => void }) =
 
   const handleSend = () => {
     if (!question) return;
-    if (!qaPromptTemplate) return;
-    if (!questionGeneratorTemplate) return;
     addToHistory({ agent: "human", text: question });
-    chatApi.mutate({ userId, question, qaPromptTemplate, questionGeneratorTemplate, history });
+    chatApi.mutate({ userId, question, history });
   };
 
   return { chatApi, handleSend };

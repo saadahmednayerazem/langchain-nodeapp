@@ -40,13 +40,11 @@ export const chatRouter = createTRPCRouter({
       z.object({
         userId: z.string(),
         question: z.string(),
-        qaPromptTemplate: z.string(),
-        questionGeneratorTemplate: z.string(),
         history: z.array(z.object({ agent: z.string(), text: z.string() })),
       }),
     )
     .mutation(async ({ input }) => {
-      const { userId, question, qaPromptTemplate, questionGeneratorTemplate, history } = input;
+      const { question, userId, history } = input;
 
       try {
         const vectorStore = await WeaviateStore.fromExistingIndex(embeddings, {
@@ -65,7 +63,7 @@ export const chatRouter = createTRPCRouter({
           prompt: question_generator_prompt,
         });
 
-        const chainOptions = {maxIterations: 1, ensureMapStep: false, maxTokens:3500};
+        // const chainOptions = {maxIterations: 1, ensureMapStep: false, maxTokens:3500};
         const chain = new ConversationalRetrievalQAChain({
           // combineDocumentsChain: loadQARefineChain(model),
           combineDocumentsChain: loadQAMapReduceChain(model),
