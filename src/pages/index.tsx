@@ -18,7 +18,7 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main>
-        <script src="https://stoic-sanderson.64-227-145-136.plesk.page/public/iframeResizer.contentWindow.min.js" async />
+        <script src="https://peaceful-faraday.143-110-176-81.plesk.page/public/iframeResizer.contentWindow.min.js" async />
         <div className="row m-0 p-0">
           <div className="col-md-4 sidebar">
             <div className="card border-0 shadow-sm">
