@@ -12,18 +12,18 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Chat with pdf,docx,csv,txt,json documents</title>
+        <title>Chat With (pdf, docx, csv, txt, json) documents using ChatGPT 4</title>
         <meta name="description" content="Saad Ahmed " />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main>
-        <script src="https://peaceful-faraday.143-110-176-81.plesk.page/public/iframeResizer.contentWindow.min.js" async />
+        <script src="http://tryauthor.code/public/iframeResizer.contentWindow.min.js" async />
         <div className="row m-0 p-0">
           <div className="col-md-4 sidebar">
             <div className="card border-0 shadow-sm">
               <div className="card-body card-body-padding">
-                <h6 className="mt-1 ml-3 fs-16 fw-bolder">Critique and Analyze</h6>
-                <p className="fs-12 text-muted mb-4 small">Critique and Analyze Chat Question Answering With Your Multiple Documents</p>
+                <h6 className="mt-1 ml-3 fs-16 fw-bolder">Chat With (pdf, docx, csv, txt, json) documents using ChatGPT 4</h6>
+                <p className="fs-12 text-muted mb-4 small">Chat With (pdf, docx, csv, txt, json) documents using ChatGPT 4</p>
 
                 <FileUpload />
 

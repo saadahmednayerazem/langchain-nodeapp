@@ -31,7 +31,19 @@ Chat History:
 Follow Up Input: {question}
 Standalone question:`;
 
-const model = new ChatOpenAI({ openAIApiKey: env.OPENAI_API_KEY, temperature: 0, modelName: "gpt-3.5-turbo" });
+const model = new ChatOpenAI({ 
+  openAIApiKey: env.OPENAI_API_KEY, 
+  temperature: 0,
+  modelName: "gpt-4",
+  streaming: true,
+  // callbacks: [
+  //   {
+  //     handleLLMNewToken(token: string) {
+  //       process.stdout.write(token);
+  //     },
+  //   },
+  // ], 
+});
 const embeddings = new OpenAIEmbeddings({ openAIApiKey: env.OPENAI_API_KEY });
 
 export const chatRouter = createTRPCRouter({
