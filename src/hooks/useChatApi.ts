@@ -10,11 +10,15 @@ export const useChatApi = ({ scrollToBottom }: { scrollToBottom: () => void }) =
 
   const chatApi = api.chat.prompt.useMutation({
     onSuccess: (text) => {
+      console.log(`useChatApi-onSuccess-text = ${String(text)}!`);
+
       addToHistory({ agent: "ai", text });
       setQuestion("");
       scrollToBottom();
     },
     onError: (error) => {
+      console.error(`useChatApi-onError-error = ${String(error)}`);
+
       console.error(error);
       notifications.show({ title: "Error", message: error.message, color: "red" });
     },
