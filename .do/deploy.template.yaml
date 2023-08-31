@@ -1,0 +1,10 @@
+spec:
+  name: langchain-nodeapp
+  features:
+    - buildpack-stack=ubuntu-22
+  services:
+  - environment_slug: langchain-nodeapp
+    git:
+      branch: main
+      repo_clone_url: https://github.com/saadahmednayerazem/langchain-nodeapp.git
+    name: langchain-nodeapp

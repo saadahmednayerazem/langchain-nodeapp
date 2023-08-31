@@ -1,0 +1,10 @@
+name: langchain-nodeapp
+features:
+  - buildpack-stack=ubuntu-22
+services:
+- environment_slug: langchain-nodeapp
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: saadahmednayerazem/langchain-nodeapp
+  name: langchain-nodeapp

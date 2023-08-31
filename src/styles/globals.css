@@ -1,27 +1,23 @@
 body{
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #1e1e2d;
-  text-align: left;
-	background: #f5f9fc !important;
-  overflow-x: hidden;
+ 	overflow-x: hidden;
+	background: url("https://us-as.gr-cdn.com/javascripts/app-frontend-login-pages/dist/62fe9bad58926f3fedd2a6816740d961-3256.png") center center / cover no-repeat;
+	margin: 0px !important;
+	padding: 0px !important;
+	font-family: Roboto,Helvetica,sans-serif;
 }
 
 .bg-image{
-/*	background: url("https://us-as.gr-cdn.com/javascripts/app-frontend-login-pages/dist/62fe9bad58926f3fedd2a6816740d961-3256.png") center center / cover no-repeat;*/
 	margin: 0px !important;
 	padding: 0px !important;
 }
-.logo-img{
-	padding-top: 30px;
-	padding-bottom: 30px;
-	padding-left: 30px;
-	padding-right: 30px;
+
+
+.border-left-primary {
+  border-left: 0.25rem solid var(--bs-primary) !important;
 }
-.logo-img svg{
-	width: 180px !important;
-	height: 26px !important;
+
+.shadow {
+  box-shadow: 0 0.5rem 0.8rem rgba(55, 99, 244, 0.15) !important;
 }
 
 .mantine-Text-root.mantine-1k0grif{
@@ -87,6 +83,17 @@ svg:not(:root) {
   box-shadow: none;
   box-sizing: border-box;
 /*  padding: 64px 32px 48px !important;*/
+}
+
+.logo-img{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.logo-img svg{
+	width: 180px !important;
+	height: 26px !important;
 }
 
 
